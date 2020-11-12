@@ -1,0 +1,59 @@
+<div class="g-pa-20">
+    <div class="card mb-2">
+        <div class="card-header">
+            <h3>Landlord List</h3>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button  [routerLink]="['addlandlord']" class="btn btn-primary" type="button" id="button-addon1"><i class="fa fa-plus-circle"></i></button>
+            <button class="btn btn-primary" (click)="searchLandlord()"><i class="fa fa-search"></i></button>
+        </div>
+        <input type="text" [(ngModel)]="searchtxt" class="form-control" placeholder="Address or Tenant">
+    </div>
+
+    <br />
+    <div *ngIf="isLoading"  class="card" style="height:100px;">
+        <div class="card-body">
+            <ngx-spinner [fullScreen]="false" type="line-scale" size="medium">
+             
+            </ngx-spinner>
+        </div>
+     </div>
+    <div class="table-responsive g-mb-40">
+        <table class="table u-table--v3 g-color-black">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th class="d-none d-sm-table-cell">Address</th>
+                    <th class="d-none d-sm-table-cell">Mobile</th>
+                    <th class="d-none d-sm-table-cell">email</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let land of landlordSrv?.displaySource">
+                    <td>{{land.name}}</td>
+                    <td class="d-none d-sm-table-cell"><span>{{land.address1}}</span></td>
+                    <td class="d-none d-sm-table-cell"><span>{{land.mobile}} </span></td>
+                    <td class="d-none d-sm-table-cell"><span>{{land.email}}  </span></td>
+                    <td style="text-align: right">
+                        <a title="Edit" [routerLink]="['editlandlord', land.id]"><i class="fa fa-edit"></i></a> |
+                        <a title="Details" [routerLink]="['detaillandlord', land.id]"  title="Details"><i class="fa fa-th"></i></a> |
+                        <a title="Delete" [routerLink]="['deletelandlord', land.id]"  title="Delete"><i class="fa fa-trash-o" style="color: red;"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <nav aria-label="Page navigation example" *ngIf="landlordSrv?.pageCount > 0">
+            <ul class="pagination">
+              <li [ngClass]="{disabled: landlordSrv?.currentPage === 0}" class="page-item"><a  class="page-link" (click)="landlordSrv?.paginate(0)">First</a></li>
+              <li [ngClass]="{disabled: landlordSrv?.currentPage === 0}" class="page-item"><a class="page-link" (click)="landlordSrv?.paginate(landlordSrv?.currentPage - 1)">Previous</a></li>
+              <li [ngClass]="{disabled: landlordSrv?.currentPage +1 === landlordSrv?.pageCount}" class="page-item"><a class="page-link" (click)="landlordSrv?.paginate(landlordSrv?.currentPage + 1)">Next</a></li>
+              <li [ngClass]="{disabled: landlordSrv?.currentPage +1 === landlordSrv?.pageCount}" class="page-item"><a class="page-link" (click)="landlordSrv?.paginate(landlordSrv?.pageCount - 1)">Last</a></li>
+            </ul>
+          </nav>
+    </div>
+</div>

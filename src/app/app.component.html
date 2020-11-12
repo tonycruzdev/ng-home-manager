@@ -1,0 +1,35 @@
+
+<header>
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+      <div class="container">
+          <a class="navbar-brand" routerLink="/">Angular Lettings Manager</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="toggleNavbar()" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                  aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div [ngClass]="{ 'show': navbarOpen }" class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+              <ul class="navbar-nav flex-grow-1">
+                
+                  <li routerLinkActive="active" class="nav-item">
+                      <a routerLink="/houses" class="nav-link text-dark" routerLinkActive="active" (click)="toggleNavbar()">Home</a>
+                  </li>
+                  <li routerLinkActive="active" class="nav-item">
+                      <a a  routerLink="/landlords" class="nav-link text-dark" routerLinkActive="active" (click)="toggleNavbar()">Landlords</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+</header>
+<div class="container">
+  <main role="main" class="pb-3">
+      <router-outlet></router-outlet>
+  </main>
+</div>
+
+<footer class="border-top footer text-muted">
+  <div class="container">
+      &copy; 2020 - Lettings Manager <a asp-area="" asp-page="/Privacy">Privacy</a>
+  </div>
+</footer>
+

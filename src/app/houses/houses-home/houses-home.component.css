@@ -1,0 +1,12 @@
+a {
+    cursor: pointer;
+}
+
+  .container-spinner{
+    min-height: 400px;
+  }
+  
+  .loading{
+    color: white;
+    padding-top: 50px;
+  }

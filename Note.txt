@@ -1,0 +1,33 @@
+ng g m houses --routing
+ng g m landlords --routing
+ng g m Shared
+
+ng g c houses/Home
+ng g c houses/Edit-House --skipTests
+ng g c houses/Delete-House --skipTests
+ng g c houses/Details-House --skipTests
+ng g c houses/Add-House --skipTests
+
+ng g c landlords/Landlord-Home --skipTests
+ng g c landlords/Detail-Landlord --skipTests
+ng g c landlords/Edit-Landlord --skipTests
+ng g c landlords/Delete-Landlord --skipTests
+ng g c landlords/AddLandlord --skipTests
+
+ng g c mods/ModsHome
+ng g c Shared/Divider
+ng g d elements/Times
+ng g c elements/Segment
+ng g c Home --skipTests
+ng g c NotFound --skipTests
+
+--skipTests
+ng g s houses/HousesManager --skipTests
+ng g s landlords/landlordsManager --skipTests
+
+ng add @angular/pw
+ng build --prod --base-href /home-manager/
+ng build --prod --base-href /
+http-server -p 8080 -c-1
+
+http-server -c-1

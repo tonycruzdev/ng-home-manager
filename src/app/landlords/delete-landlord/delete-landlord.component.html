@@ -1,0 +1,117 @@
+<div class="card mb-2">
+    <form  #landlordForm="ngForm">
+      <div class="row">
+        <div class="col">
+          <div class="card mb-2">
+            <div class="card-header text-white bg-danger">
+              <h5>Delete Landlord</h5>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label class="control-label"> Landlord name</label>
+                <div class="input-group">
+                  <input
+                    placeholder="Name (required)"
+                    readonly
+                    [(ngModel)]=landWithHouse.name
+                     name="name"
+                    #nameVar="ngModel"
+                    [ngClass]="{'is-invalid': (nameVar.touched || nameVar.dirty) && !nameVar.valid}" class="form-control" />
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2"
+                      ><span class="fa fa-road"></span
+                    ></span>
+                  </div>
+                </div>
+                <span *ngIf="(nameVar.touched || nameVar.dirty) && nameVar.errors?.required" class="text-danger">
+                  Please enter your Address.
+                </span>
+              </div>  
+              <div class="form-group">
+                  <label class="control-label"> Address</label>
+                  <div class="input-group">
+                    <input
+                      placeholder="Address (required)"
+                      readonly
+                      [(ngModel)]=landWithHouse.address1
+                      name="address1"
+                      #address1Var="ngModel"
+                      [ngClass]="{
+                        'is-invalid':
+                          (address1Var.touched || address1Var.dirty) && !address1Var.valid
+                      }"
+                      class="form-control"
+                    />
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="basic-addon2"
+                        ><span class="fa fa-road"></span
+                      ></span>
+                    </div>
+                  </div>
+                  <span *ngIf="(address1Var.touched || address1Var.dirty) && address1Var.errors?.required" class="text-danger">
+                    Please enter your Address.
+                  </span>
+                </div>
+              <hr />
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label class="control-label">Mobile Phone</label>
+                    <div class="input-group">
+                      <input
+                        placeholder="Mobile Number (required)"
+                        readonly
+                        [(ngModel)]="landWithHouse.mobile"
+                        name="mobile"
+                        #mobileVar="ngModel"
+                        [ngClass]="{
+                          'is-invalid':
+                            (mobileVar.touched || mobileVar.dirty) && !mobileVar.valid
+                        }"
+                        class="form-control"
+                      />
+                      <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2"
+                          ><span class="fa fa-mobile"></span
+                        ></span>
+                      </div>
+                    </div>
+                    <span *ngIf="(mobileVar.touched || mobileVar.dirty) && mobileVar.errors?.required" class="text-danger">
+                      Deposit is required
+                    </span>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label class="control-label">Email</label>
+                    <div class="input-group">
+                      <input
+                        placeholder="Email (required)"
+                        readonly
+                        [(ngModel)]=landWithHouse.email  name="email"   #EmailVar="ngModel"
+                        [ngClass]="{'is-invalid': (EmailVar.touched || EmailVar.dirty) && !EmailVar.valid }" class="form-control" />
+                      <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">
+                            <span class="fa fa-envelope"></span>
+                          </span>
+                      </div>
+                    </div>
+                    <span *ngIf="(EmailVar.touched || EmailVar.dirty) && EmailVar.errors?.required" class="text-danger">
+                      Email is required
+                    </span>
+                  </div>
+                </div>
+            </div>
+            <div class="card-footer">
+  
+              <div class="row">
+                <div class="col">
+                  <button (click)="deleteLandlord()" class="btn btn-danger float-left">Delete</button>
+                </div>
+                <div class="col pull-right">
+                  <a [routerLink]="['/landlords']" class="btn btn-primary float-right">Back</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
