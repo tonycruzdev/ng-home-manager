@@ -50,7 +50,6 @@ export class LandlordsManagerService {
   getListLandlords() {
     return this.http.get<ILandlord[]>( this.baseUrl + 'api/Landlords/GetLandlords')
     .pipe(
-      delay(2000),
       map(response => {
         this.landlords = response;
         this.dataSource = response;

@@ -1,5 +1,3 @@
-import { House } from './Houses';
-
 export interface Landlord {
     id: number;
     name: string;

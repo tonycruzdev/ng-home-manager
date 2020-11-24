@@ -19,7 +19,6 @@ export class HousesService {
   getListHouses() {
     return this.http.get<House[]>( this.baseUrl + 'api/Houses/GetHouses')
     .pipe(
-      delay(2000),
       map(response => {
         this.houseList = response;
         return this.houseList;
